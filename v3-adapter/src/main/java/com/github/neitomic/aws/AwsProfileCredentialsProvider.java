@@ -4,11 +4,11 @@ import software.amazon.awssdk.auth.credentials.AwsCredentials;
 import software.amazon.awssdk.auth.credentials.AwsCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 
-public class AwsProfileCredentialsProviderV3 implements AwsCredentialsProvider {
+public class AwsProfileCredentialsProvider implements AwsCredentialsProvider {
 
     private final AwsCredentialsProvider provider;
 
-    public AwsProfileCredentialsProviderV3(String profileName) {
+    public AwsProfileCredentialsProvider(String profileName) {
         this.provider = ProfileCredentialsProvider.builder()
                 .profileName(profileName)
                 .build();
@@ -18,7 +18,7 @@ public class AwsProfileCredentialsProviderV3 implements AwsCredentialsProvider {
      * Constructor required by Athena JDBC 3.x for custom providers.
      * It receives CredentialsProviderArguments split by comma.
      */
-    public AwsProfileCredentialsProviderV3(String... args) {
+    public AwsProfileCredentialsProvider(String... args) {
         String profile = args != null && args.length > 0 ? args[0] : "default";
         this.provider = ProfileCredentialsProvider.builder()
                 .profileName(profile)

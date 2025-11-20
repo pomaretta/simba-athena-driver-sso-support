@@ -7,82 +7,38 @@
     <groupId>com.github.neitomic</groupId>
     <artifactId>simba-athena-driver-sso-support</artifactId>
     <version>1.1</version>
+    <packaging>pom</packaging>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.simba.athena</groupId>
-            <artifactId>athena-jdbc42</artifactId>
-            <version>2.0.32.1001</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/AthenaJDBC42_2.0.32.1000.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sso</artifactId>
-            <version>2.20.83</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sts</artifactId>
-            <version>2.20.83</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>ssooidc</artifactId>
-            <version>2.20.83</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>netty-nio-client</artifactId>
-            <version>2.20.83</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>apache-client</artifactId>
-            <version>2.20.83</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>auth</artifactId>
-            <version>2.32.16</version>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>profiles</artifactId>
-            <version>2.32.16</version>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>v2-adapter</module>
+        <module>v3-adapter</module>
+    </modules>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-
+                <version>3.6.0</version>
+                <inherited>false</inherited>
                 <executions>
                     <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
+                    <id>make-dist</id>
+                    <phase>install</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                    <configuration>
+                        <descriptors>
+                            <descriptor>assembly.xml</descriptor>
+                        </descriptors>
+                        <finalName>dist</finalName>
+                        <appendAssemblyId>false</appendAssemblyId>
+                        <cleanUp>true</cleanUp> 
+                    </configuration>
                     </execution>
                 </executions>
-
             </plugin>
         </plugins>
     </build>
-
 </project>
