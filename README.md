@@ -51,20 +51,20 @@ AwsCredentialsProviderArguments=~/org/aws/config,dev
 
 For Athena JDBC 3.x drivers
 
-1. `CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProviderV3`
+1. `CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProvider`
 2. `CredentialsProviderArguments=<profile>`
 3. `<profile> := <aws_config_file_path>,<profile_name> | <profile_name>`
 
 Examples:
 1. Use `dev` profile from default config file (~/.aws/config)
 ```
-CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProviderV3
+CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProvider
 CredentialsProviderArguments=dev
 ```
 
 2. Use `dev` profile from custom config file (~/org/aws/config)
 ```
-CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProviderV3
+CredentialsProvider=com.github.neitomic.aws.AwsProfileCredentialsProvider
 CredentialsProviderArguments=~/org/aws/config,dev
 ```
 
