@@ -6,7 +6,7 @@
 
     <groupId>com.github.neitomic</groupId>
     <artifactId>simba-athena-driver-sso-support</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -21,7 +21,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/AthenaJDBC42_2.0.32.1000.jar</systemPath>
         </dependency>
-
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>sso</artifactId>
@@ -46,6 +45,16 @@
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>apache-client</artifactId>
             <version>2.20.83</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>auth</artifactId>
+            <version>2.32.16</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>profiles</artifactId>
+            <version>2.32.16</version>
         </dependency>
     </dependencies>
 
